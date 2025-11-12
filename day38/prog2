@@ -1,0 +1,34 @@
+//Q76: Check if a matrix is symmetric.
+
+#include <stdio.h>
+int main() {
+    int n, m, isSymmetric = 1;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &n, &m);
+	if (n != m) {
+        printf("False (Matrix is not square, so cannot be symmetric)\n");
+        return 0;
+    }
+	int matrix[n][n];
+	printf("Enter elements of the matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("Enter element at position [%d][%d]: ", i + 1, j + 1);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] != matrix[j][i]) {
+                isSymmetric = 0;
+                break;
+            }
+        }
+        if (!isSymmetric) break;
+    }
+	if (isSymmetric)
+        printf("True\n");
+    else
+        printf("False\n");
+	return 0;
+}
