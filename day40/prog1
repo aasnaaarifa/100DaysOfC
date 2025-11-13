@@ -1,6 +1,6 @@
 //Q79: Perform diagonal traversal of a matrix.
 
-include <stdio.h>
+#include <stdio.h>
 int main() {
     int rows, cols;
     printf("Enter number of rows and columns: ");
