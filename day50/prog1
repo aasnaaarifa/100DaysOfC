@@ -1,0 +1,40 @@
+//Q99: Change the date format from dd/04/yyyy to dd-Apr-yyyy.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char date[20];
+    scanf("%s", date);
+	char day[3], month[3], year[5];
+    int i = 0, j = 0, k = 0;
+    while (date[i] != '/') {
+        day[j++] = date[i++];
+    }
+    day[j] = '\0';
+    i++;  
+    while (date[i] != '/') {
+        month[k++] = date[i++];
+    }
+    month[k] = '\0';
+    i++;  
+    int y = 0;
+    while (date[i] != '\0') {
+        year[y++] = date[i++];
+    }
+    year[y] = '\0';
+    char monStr[4];
+    if (!strcmp(month, "1") || !strcmp(month, "01")) strcpy(monStr, "Jan");
+    else if (!strcmp(month, "2") || !strcmp(month, "02")) strcpy(monStr, "Feb");
+    else if (!strcmp(month, "3") || !strcmp(month, "03")) strcpy(monStr, "Mar");
+    else if (!strcmp(month, "4") || !strcmp(month, "04")) strcpy(monStr, "Apr");
+    else if (!strcmp(month, "5") || !strcmp(month, "05")) strcpy(monStr, "May");
+    else if (!strcmp(month, "6") || !strcmp(month, "06")) strcpy(monStr, "Jun");
+    else if (!strcmp(month, "7") || !strcmp(month, "07")) strcpy(monStr, "Jul");
+    else if (!strcmp(month, "8") || !strcmp(month, "08")) strcpy(monStr, "Aug");
+    else if (!strcmp(month, "9") || !strcmp(month, "09")) strcpy(monStr, "Sep");
+    else if (!strcmp(month, "10")) strcpy(monStr, "Oct");
+    else if (!strcmp(month, "11")) strcpy(monStr, "Nov");
+    else if (!strcmp(month, "12")) strcpy(monStr, "Dec");
+	printf("%s-%s-%s", day, monStr, year);
+	return 0;
+}
